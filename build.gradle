@@ -14,6 +14,8 @@ buildscript {
         junitVersion = "4.12"
         okhttpVersion = "3.12.0"
         jsonPathVersion = "2.4.0"
+        springCloudVersion = "Finchley.SR2"
+        springCloudServicesClientLibrariesVersion = "2.0.2.RELEASE"
     }
 
     repositories {
@@ -40,7 +42,13 @@ subprojects {
         jcenter()
     }
 
+    configurations {
+        scm
+    }
+
     dependencies {
+        scm 'org.eclipse.jgit:org.eclipse.jgit:4.9.2.201712150930-r'
+
         compile "com.fasterxml.jackson.core:jackson-core:$jacksonVersion"
         compile "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
         compile "com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion"
